@@ -1,16 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>Hello Bain Pages</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ====== SEO 基础 ====== -->
+  <title>Home Renovation, HVAC & Lawn Care in Waterloo Region | EverFresh</title>
+  <meta name="description" content="Design-build renovations, HVAC install & repair, and seasonal lawn care. Serving Kitchener-Waterloo, Cambridge, Guelph, Stratford. Free quotes." />
+  <meta name="keywords" content="home renovation, HVAC, lawn care, Kitchener, Waterloo, Cambridge, Guelph, Stratford, Ontario" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Home Renovation, HVAC & Lawn Care | EverFresh">
+  <meta property="og:description" content="Renovation, HVAC, and lawn care services across Waterloo Region.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"> <!-- TODO: 替换为你的封面图 -->
+  <meta property="og:url" content="https://yourusername.github.io/your-repo/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- hreflang 多语言 -->
+  <link rel="alternate" href="https://yourusername.github.io/your-repo/" hreflang="en">
+  <link rel="alternate" href="https://yourusername.github.io/your-repo/zh" hreflang="zh-Hans">
+  <link rel="alternate" href="https://yourusername.github.io/your-repo/" hreflang="x-default">
+
+  <!-- ====== Tailwind CDN（你说用网上包，这里用 CDN）====== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 站点配色：深海军蓝 / 米色背景 -->
   <style>
-    body { text-align: center; font-family: Arial, sans-serif; margin-top: 100px; }
-    img { width: 250px; border-radius: 12px; }
+    :root{
+      --brand:#0B1A45; --bg:#E6E1D6; --accent:#3B82F6;
+    }
+    /* 提升可访问性：键盘焦点可见 */
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   </style>
+
+  <!-- ====== 结构化数据（LocalBusiness + GEO）====== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"EverFresh Home Services Inc.",
+    "image":"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop",
+    "telephone":"+1-519-555-0123",
+    "email":"hello@everfreshhomes.ca",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"123 King St W",
+      "addressLocality":"Kitchener",
+      "addressRegion":"ON",
+      "postalCode":"N2G 1A7",
+      "addressCountry":"CA"
+    },
+    "geo":{"@type":"GeoCoordinates","latitude":43.4516,"longitude":-80.4925},
+    "areaServed":["Kitchener","Waterloo","Cambridge","Guelph","Stratford","London","Woodstock"],
+    "openingHours":"Mo-Fr 08:00-18:00, Sa 09:00-15:00",
+    "makesOffer":[
+      {"@type":"Service","name":"Home Renovation"},
+      {"@type":"Service","name":"HVAC Installation & Repair"},
+      {"@type":"Service","name":"Lawn Care"}
+    ]
+  }
+  </script>
 </head>
-<body>
-  <h1>刷墙找Bain 🎉</h1>
-  <p>This is a simple static page hosted with <b>GitHub Pages</b>.</p>
-  <img src="https://placekitten.com/400/300" alt="Cute cat">
+
+<body class="bg-[var(--bg)] text-slate-800 antialiased">
+  <!-- ====== 顶部导航 ====== -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-[var(--bg)]/80 border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="font-extrabold tracking-wide text-xl text-[var(--brand)]">EverFresh</a>
+      <nav class="hidden md:flex gap-6">
+        <a href="#services" class="hover:text-[var(--brand)]">Services</a>
+        <a href="#partners" class="hover:text-[var(--brand)]">Partners</a>
+        <a href="#contact" class="hover:text-[var(--brand)]">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="langToggle" class="px-3 py-1.5 rounded-full border border-black/10 hover:border-black/20 text-sm" aria-label="toggle language">中文</button>
+        <a href="#contact" class="hidden sm:inline-block bg-[var(--brand)] text-white px-4 py-2 rounded-full hover:opacity-90">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== 屏一：Hero / Banner ====== -->
+  <section id="home" class="py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 data-i18n="hero_title" class="text-4xl md:text-5xl font-extrabold leading-tight text-[var(--brand)]">
+          Home Renovation · HVAC · Lawn Care
+        </h1>
+        <p data-i18n="hero_sub" class="mt-4 text-lg md:text-xl text-slate-700">
+          We design, build, and maintain comfortable homes across Southwestern Ontario.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="#contact" class="bg-[var(--brand)] text-white px-5 py-3 rounded-full hover:opacity-90" data-i18n="cta_quote">Get a Quote</a>
+          <a href="tel:+15195550123" class="px-5 py-3 rounded-full border border-black/10 hover:border-black/20" aria-label="call now" data-i18n="cta_call">Call Now</a>
+        </div>
+      </div>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1600&auto=format&fit=crop"
+          alt="Bright modern living room renovation in Waterloo Region"
+          class="w-full rounded-3xl shadow-2xl"
+          loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 屏二：服务模块 + 等尺寸图墙（图左/右加文字） ====== -->
+  <section id="services" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- 模块：Renovation -->
+      <div class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="srv_reno">Renovation</h2>
+        <p class="mt-2 text-slate-600" data-i18n="srv_reno_desc">Full-house, kitchen, bathroom, basement, painting, flooring, decks & fences.</p>
+
+        <!-- 交替图文卡 -->
+        <div class="mt-8 grid md:grid-cols-2 gap-6 items-center">
+          <img class="w-full rounded-3xl shadow-xl aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&auto=format&fit=crop"
+               alt="Kitchen renovation in Kitchener, modern cabinetry" loading="lazy">
+          <div class="bg-white/80 rounded-3xl shadow-lg p-6 md:p-8">
+            <h3 class="font-semibold text-xl" data-i18n="reno_blurb_title">Modern Kitchen Makeover</h3>
+            <p class="mt-2 text-slate-700" data-i18n="reno_blurb_text">
+              Open layout, neutral palette, optimized lighting for daily cooking and gatherings.
+            </p>
+          </div>
+        </div>
+
+        <!-- 等尺寸图墙 -->
+        <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- 统一比例：aspect-4/3 + object-cover，卡片等高 -->
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop"
+               alt="Bathroom renovation in Waterloo" loading="lazy">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&auto=format&fit=crop"
+               alt="Basement finishing in Cambridge" loading="lazy">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1200&auto=format&fit=crop"
+               alt="Living room remodeling in Guelph" loading="lazy">
+        </div>
+      </div>
+
+      <!-- 模块：HVAC -->
+      <div class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="srv_hvac">HVAC</h2>
+        <p class="mt-2 text-slate-600" data-i18n="srv_hvac_desc">Furnace/AC install & repair, heat pumps, ventilation, smart thermostats.</p>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-6 items-center">
+          <div class="bg-white/80 rounded-3xl shadow-lg p-6 md:p-8 order-2 md:order-1">
+            <h3 class="font-semibold text-xl" data-i18n="hvac_blurb_title">Efficient Heat Pump Upgrade</h3>
+            <p class="mt-2 text-slate-700" data-i18n="hvac_blurb_text">
+              Energy-saving heating & cooling, quiet operation, and smart control.
+            </p>
+          </div>
+          <img class="w-full rounded-3xl shadow-xl aspect-[4/3] object-cover order-1 md:order-2"
+               src="https://images.unsplash.com/photo-1597074866923-2f2b7b3f4b40?q=80&w=1200&auto=format&fit=crop"
+               alt="Heat pump outdoor unit installation in Waterloo Region" loading="lazy">
+        </div>
+
+        <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=1200&auto=format&fit=crop"
+               alt="Furnace tune-up in Kitchener" loading="lazy">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop"
+               alt="Smart thermostat setup in Waterloo" loading="lazy">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1520975922215-230f0d514ab8?q=80&w=1200&auto=format&fit=crop"
+               alt="Duct and ventilation service in Cambridge" loading="lazy">
+        </div>
+      </div>
+
+      <!-- 模块：Lawn Care -->
+      <div class="mb-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="srv_lawn">Lawn Care</h2>
+        <p class="mt-2 text-slate-600" data-i18n="srv_lawn_desc">Mowing, edging, aeration, overseeding, fertilizing, seasonal cleanups.</p>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-6 items-center">
+          <img class="w-full rounded-3xl shadow-xl aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1523419409543-a5e549c1dc88?q=80&w=1200&auto=format&fit=crop"
+               alt="Lawn mowing and edging in Guelph" loading="lazy">
+          <div class="bg-white/80 rounded-3xl shadow-lg p-6 md:p-8">
+            <h3 class="font-semibold text-xl" data-i18n="lawn_blurb_title">Thick & Healthy Lawn</h3>
+            <p class="mt-2 text-slate-700" data-i18n="lawn_blurb_text">
+              Seasonal care plan that keeps your yard green, clean, and family-friendly.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1598514982380-5b7c4a5bc9a0?q=80&w=1200&auto=format&fit=crop"
+               alt="Lawn aeration in Waterloo" loading="lazy">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1599058945522-28a9d2a6d7f3?q=80&w=1200&auto=format&fit=crop"
+               alt="Fertilizing service in Stratford" loading="lazy">
+          <img class="w-full rounded-2xl shadow aspect-[4/3] object-cover"
+               src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1200&auto=format&fit=crop"
+               alt="Overseeding in Cambridge" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 屏三：合作品牌 ====== -->
+  <section id="partners" class="py-16 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="partners_title">Trusted Brands & Partners</h2>
+      <p class="mt-2 text-slate-600" data-i18n="partners_sub">Quality materials and reliable HVAC manufacturers we work with.</p>
+
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <!-- 用占位 Logo，可替换为你们合作商 -->
+        <div class="p-4 rounded-xl bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition">
+          <img src="https://dummyimage.com/200x80/edf2f7/333&text=Benjamin+Moore" alt="Benjamin Moore logo">
+        </div>
+        <div class="p-4 rounded-xl bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition">
+          <img src="https://dummyimage.com/200x80/edf2f7/333&text=Sherwin-Williams" alt="Sherwin-Williams logo">
+        </div>
+        <div class="p-4 rounded-xl bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition">
+          <img src="https://dummyimage.com/200x80/edf2f7/333&text=Home+Depot" alt="Home Depot logo">
+        </div>
+        <div class="p-4 rounded-xl bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition">
+          <img src="https://dummyimage.com/200x80/edf2f7/333&text=Carrier" alt="Carrier logo">
+        </div>
+        <div class="p-4 rounded-xl bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition">
+          <img src="https://dummyimage.com/200x80/edf2f7/333&text=Lennox" alt="Lennox logo">
+        </div>
+        <div class="p-4 rounded-xl bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition">
+          <img src="https://dummyimage.com/200x80/edf2f7/333&text=Daikin" alt="Daikin logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 屏四：联系信息 / Footer ====== -->
+  <footer id="contact" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="contact_title">Contact Us</h2>
+        <p class="mt-2 text-slate-600" data-i18n="contact_sub">Get a free quote or book a visit. We respond within one business day.</p>
+
+        <ul class="mt-6 space-y-3 text-slate-700">
+          <li><strong data-i18n="label_company">Company:</strong> <span>EverFresh Home Services Inc.</span></li>
+          <li><strong data-i18n="label_phone">Phone:</strong> <a class="underline" href="tel:+15195550123">+1 (519) 555-0123</a></li>
+          <li><strong data-i18n="label_email">Email:</strong> <a class="underline" href="mailto:hello@everfreshhomes.ca">hello@everfreshhomes.ca</a></li>
+          <li><strong data-i18n="label_address">Address:</strong> <span>123 King St W, Kitchener, ON N2G 1A7</span></li>
+          <li><strong data-i18n="label_hours">Hours:</strong> <span>Mon–Fri 8:00–18:00, Sat 9:00–15:00</span></li>
+          <li><strong data-i18n="label_scope">Services:</strong> <span data-i18n="scope_text">Home renovation, HVAC install & repair, lawn care.</span></li>
+          <li><strong data-i18n="label_area">Service Area:</strong> Kitchener · Waterloo · Cambridge · Guelph · Stratford</li>
+        </ul>
+
+        <div class="mt-6 flex gap-3">
+          <!-- TODO: 替换为真实社媒链接 -->
+          <a href="https://www.facebook.com/" aria-label="Facebook" class="px-3 py-2 rounded-lg bg-white shadow hover:shadow-md">Facebook</a>
+          <a href="https://x.com/" aria-label="X" class="px-3 py-2 rounded-lg bg-white shadow hover:shadow-md">X</a>
+          <a href="https://www.instagram.com/" aria-label="Instagram" class="px-3 py-2 rounded-lg bg-white shadow hover:shadow-md">Instagram</a>
+          <a href="#" aria-label="WeChat" class="px-3 py-2 rounded-lg bg-white shadow hover:shadow-md">WeChat</a>
+        </div>
+      </div>
+
+      <!-- 简易表单（纯静态，可接 Formspree/Netlify Forms） -->
+      <form class="bg-white rounded-3xl shadow-xl p-6 md:p-8 space-y-4" action="https://formspree.io/f/your-id" method="POST">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input name="name" required class="w-full border border-black/10 rounded-xl px-4 py-3" placeholder="Name / 姓名">
+          <input name="phone" class="w-full border border-black/10 rounded-xl px-4 py-3" placeholder="Phone / 电话">
+        </div>
+        <input name="email" type="email" required class="w-full border border-black/10 rounded-xl px-4 py-3" placeholder="Email / 邮箱">
+        <textarea name="message" rows="4" class="w-full border border-black/10 rounded-xl px-4 py-3" placeholder="Tell us about your project / 请描述你的需求"></textarea>
+        <button class="bg-[var(--brand)] text-white px-5 py-3 rounded-xl hover:opacity-90 w-full" data-i18n="btn_send">Send</button>
+        <p class="text-xs text-slate-500">By submitting, you agree to be contacted. / 提交即表示同意我们与您联系。</p>
+      </form>
+    </div>
+
+    <div class="mt-12 text-center text-sm text-slate-500">
+      © <span id="year"></span> EverFresh Home Services Inc. · All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ====== 简易多语言字典（EN / 简体中文）====== -->
+  <script>
+    const dict = {
+      en: {
+        hero_title: "Home Renovation · HVAC · Lawn Care",
+        hero_sub: "We design, build, and maintain comfortable homes across Southwestern Ontario.",
+        cta_quote: "Get a Quote",
+        cta_call: "Call Now",
+
+        srv_reno: "Renovation",
+        srv_reno_desc: "Full-house, kitchen, bathroom, basement, painting, flooring, decks & fences.",
+        reno_blurb_title: "Modern Kitchen Makeover",
+        reno_blurb_text: "Open layout, neutral palette, optimized lighting for daily cooking and gatherings.",
+
+        srv_hvac: "HVAC",
+        srv_hvac_desc: "Furnace/AC install & repair, heat pumps, ventilation, smart thermostats.",
+        hvac_blurb_title: "Efficient Heat Pump Upgrade",
+        hvac_blurb_text: "Energy-saving heating & cooling, quiet operation, and smart control.",
+
+        srv_lawn: "Lawn Care",
+        srv_lawn_desc: "Mowing, edging, aeration, overseeding, fertilizing, seasonal cleanups.",
+        lawn_blurb_title: "Thick & Healthy Lawn",
+        lawn_blurb_text: "Seasonal care plan that keeps your yard green, clean, and family-friendly.",
+
+        partners_title: "Trusted Brands & Partners",
+        partners_sub: "Quality materials and reliable HVAC manufacturers we work with.",
+
+        contact_title: "Contact Us",
+        contact_sub: "Get a free quote or book a visit. We respond within one business day.",
+        label_company: "Company:",
+        label_phone: "Phone:",
+        label_email: "Email:",
+        label_address: "Address:",
+        label_hours: "Hours:",
+        label_scope: "Services:",
+        label_area: "Service Area:",
+        scope_text: "Home renovation, HVAC install & repair, lawn care.",
+        btn_send: "Send"
+      },
+      zh: {
+        hero_title: "室内外装修 · 冷暖空调 · 草坪护理",
+        hero_sub: "我们在安省西南区域提供从设计施工到维护保养的一站式居家服务。",
+        cta_quote: "获取报价",
+        cta_call: "立即来电",
+
+        srv_reno: "室内外装修",
+        srv_reno_desc: "全屋翻新、厨房/卫浴、地下室、粉刷地板、露台与围栏等。",
+        reno_blurb_title: "现代厨房焕新",
+        reno_blurb_text: "开放式布局、中性色调、灯光优化，兼顾日常烹饪与聚会。",
+
+        srv_hvac: "冷暖空调",
+        srv_hvac_desc: "暖炉/空调安装与维修、热泵、新风、智能温控。",
+        hvac_blurb_title: "高效热泵升级",
+        hvac_blurb_text: "节能静音、冷热两用、智能控制。",
+
+        srv_lawn: "草坪护理",
+        srv_lawn_desc: "修剪、打边、打孔、补播、施肥、春秋季清理。",
+        lawn_blurb_title: "浓密健康的草坪",
+        lawn_blurb_text: "按季维护计划，让庭院四季常青、整洁友好。",
+
+        partners_title: "合作品牌",
+        partners_sub: "精选建材与可靠的暖通制造商。",
+
+        contact_title: "联系我们",
+        contact_sub: "免费报价或预约上门，工作日 24 小时内回复。",
+        label_company: "公司：",
+        label_phone: "电话：",
+        label_email: "邮箱：",
+        label_address: "地址：",
+        label_hours: "时间：",
+        label_scope: "经营范围：",
+        label_area: "服务区域：",
+        scope_text: "室内外装修、冷暖空调安装与维修、草坪护理。",
+        btn_send: "发送"
+      }
+    };
+
+    const t = (lang) => {
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang][key]) el.textContent = dict[lang][key];
+      });
+      document.getElementById("langToggle").textContent = lang === 'zh' ? "EN" : "中文";
+      localStorage.setItem("lang", lang);
+    };
+
+    const langBtn = document.getElementById("langToggle");
+    langBtn.addEventListener("click", () => t((localStorage.getItem("lang") || "en") === "en" ? "zh" : "en"));
+
+    // 初始化：年份 & 语言
+    document.getElementById("year").textContent = new Date().getFullYear();
+    t(localStorage.getItem("lang") || "en");
+  </script>
 </body>
 </html>
