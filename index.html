@@ -338,12 +338,16 @@
     </div>
 
     <!-- WeChat QR 简易弹窗 -->
-    <div id="wechatModal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm items-center justify-center p-4">
+    <div id="wechatModal"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" role="dialog"
+      aria-modal="true">
       <div class="bg-white rounded-2xl p-6 max-w-sm w-full text-center shadow-xl">
         <h4 class="font-semibold text-lg mb-3">WeChat</h4>
-        <img id="wechatQR" src="#" alt="WeChat QR" class="mx-auto rounded-lg">
-        <p class="text-sm text-slate-600 mt-3">Replace this image with your QR code later.</p>
-        <button id="closeWechat" class="mt-4 px-4 py-2 rounded-lg border border-black/10">Close</button>
+        <img id="wechatQR" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/WechatQRCode.jpg"
+          alt="WeChat QR Code"
+          class="mx-auto rounded-lg max-w-xs w-full">
+        <p class="text-sm text-slate-600 mt-3" data-i18n="wechat_note">Contact My WeChat QR code to get a Quote.</p>
+        <button id="closeWechat" class="mt-4 px-4 py-2 rounded-lg border border-black/10" data-i18n="btn_close">Close</button>
       </div>
     </div>
 
@@ -386,7 +390,9 @@
           hours_text:"Mon–Fri 9:00–22:00, Sat–Sun 10:00–18:00",
           btn_send:"Send",form_note:"Submitting opens your email app with details pre-filled. No data is stored on this site.",
           label_follow:"Follow us:",
-          projects_title:"Recent Projects · Recent photos"
+          projects_title:"Recent Projects · Recent photos",
+          wechat_note:"Contact My WeChat QR code to get a Quote.",
+          btn_close:"Close"
         },
         zh:{
           nav_services:"服务",nav_partners:"合作品牌",nav_contact:"联系我们",
@@ -407,6 +413,8 @@
           btn_send:"发送",form_note:"提交后将打开您的邮箱并自动填入内容；本网站不保存任何数据。",
           label_follow:"关注我们：",
           projects_title:"近期项目 · 最新照片",
+          wechat_note:"扫码添加微信，获取报价。",
+          btn_close:"关闭"
         }
       };
 
