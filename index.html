@@ -11,6 +11,63 @@
   <style>
     :root{--brand:#0B1A45;--bg:#E6E1D6;--accent:#3B82F6;}
     :focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+    /* marquee styles */
+    :root {
+      --brand: #0B1A45;
+      --bg: #E6E1D6;
+      --accent: #3B82F6;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* marquee styles */
+    .marquee {
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      /* duration 可调整滚动速度（s）*/
+      animation: marquee 20s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee:hover .marquee-track,
+    .marquee:focus-within .marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* 保证无缝滚动：track 内容需重复一遍，关键帧移动 -50% */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* 图片样式：高度固定，宽度按比例 */
+    .marquee img {
+      height: 10rem;
+      width: auto;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .marquee img {
+        height: 12rem;
+      }
+
+      /* 可响应式放大 */
+    }
   </style>
 </head>
 
@@ -143,18 +200,80 @@
   <!-- Partners -->
   <section id="partners" class="py-16 bg-white/70">
     <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="partners_title">Trusted Brands & Partners</h2>
-      <p class="mt-2 text-slate-600" data-i18n="partners_sub">Quality materials and reliable HVAC manufacturers we work with.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--brand)]" data-i18n="partners_title">Trusted Brands &
+        Partners</h2>
+      <p class="mt-2 text-slate-600" data-i18n="partners_sub">Quality materials and reliable HVAC manufacturers we work
+        with.</p>
       <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-        <div class="p-4 bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition"><img src="#" alt="Home Depot"></div>
-        <div class="p-4 bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition"><img src="#" alt="Carrier"></div>
-        <div class="p-4 bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition"><img src="#" alt="Lennox"></div>
-        <div class="p-4 bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition"><img src="#" alt="Daikin"></div>
-        <div class="p-4 bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition"><img src="#" alt="Benjamin Moore"></div>
-        <div class="p-4 bg-white shadow flex items-center justify-center grayscale hover:grayscale-0 transition"><img src="#" alt="Moen"></div>
+        <div class="p-4 bg-white shadow flex items-center justify-center transition-transform hover:scale-105"><img
+            src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Logo_THD.jpg" alt="Home Depot"></div>
+        <div class="p-4 bg-white shadow flex items-center justify-center transition-transform hover:scale-105"><img
+            src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Logo_Carrier.svg" alt="Carrier"></div>
+        <div class="p-4 bg-white shadow flex items-center justify-center transition-transform hover:scale-105"><img
+            src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Logo_Lennox.png" alt="Lennox"></div>
+        <div class="p-4 bg-white shadow flex items-center justify-center transition-transform hover:scale-105"><img
+            src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Logo_Daikin.jpeg" alt="Daikin"></div>
+        <div class="p-4 bg-white shadow flex items-center justify-center transition-transform hover:scale-105"><img
+            src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Logo_Banjamin.png"
+            alt="Benjamin Moore">
+        </div>
+        <div class="p-4 bg-white shadow flex items-center justify-center transition-transform hover:scale-105"><img
+            src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Logo_Moen.jpeg" alt="Moen"></div>
       </div>
     </div>
   </section>
+
+    <!-- Recent projects (单独一行 section, 独立于 partners) -->
+      <section id="projects" class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-2xl font-bold text-[var(--brand)] mb-4" data-i18n="projects_title">Recent Projects</h2>
+
+          <div class="marquee" aria-label="Recent projects scrolling gallery">
+            <!-- track 内必须把图片组重复一次以实现无缝循环 -->
+            <div class="marquee-track" role="list">
+              <!-- 第一组 -->
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q1.jpg"
+                alt="Project A" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q2.jpg"
+                alt="Project B" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q3.jpg"
+                alt="Project C" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q4.jpg"
+                alt="Project D" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q5.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q6.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q7.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q8.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q9.jpg"
+                alt="Project E" loading="lazy">
+
+              <!-- 重复一遍（保持无缝） -->
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q1.jpg"
+                alt="Project A" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q2.jpg"
+                alt="Project B" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q3.jpg"
+                alt="Project C" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q4.jpg"
+                alt="Project D" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q5.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q6.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q7.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q8.jpg"
+                alt="Project E" loading="lazy">
+              <img role="listitem" src="https://raw.githubusercontent.com/YourShawn/bainPage/main/image/Q9.jpg"
+                alt="Project E" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
 
   <!-- Contact -->
   <footer id="contact" class="py-16">
@@ -266,7 +385,8 @@
           contact_title:"Contact Us",label_phone:"Phone:",label_email:"Email:",label_hours:"Hours:",
           hours_text:"Mon–Fri 9:00–22:00, Sat–Sun 10:00–18:00",
           btn_send:"Send",form_note:"Submitting opens your email app with details pre-filled. No data is stored on this site.",
-          label_follow:"Follow us:"
+          label_follow:"Follow us:",
+          projects_title:"Recent Projects · Recent photos"
         },
         zh:{
           nav_services:"服务",nav_partners:"合作品牌",nav_contact:"联系我们",
@@ -285,7 +405,8 @@
           contact_title:"联系我们",label_phone:"电话：",label_email:"邮箱：",label_hours:"时间：",
           hours_text:"周一至周五 9:00–22:00，周六周日 10:00–18:00",
           btn_send:"发送",form_note:"提交后将打开您的邮箱并自动填入内容；本网站不保存任何数据。",
-          label_follow:"关注我们："
+          label_follow:"关注我们：",
+          projects_title:"近期项目 · 最新照片",
         }
       };
 
